@@ -11,13 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 const authRoutes = require("./routes/authRoutes");
-const budgetRoutes = require("./routes/budgetRoutes");
-const expenseRoutes = require("./routes/expenseRoutes");
-
 app.use("/api/auth", authRoutes);
-app.use("/api/budget", budgetRoutes);
-app.use("/api/expense", expenseRoutes);
-
 app.get("/", (req, res) => {
   res.send("Budget Planner API Running ");
 });

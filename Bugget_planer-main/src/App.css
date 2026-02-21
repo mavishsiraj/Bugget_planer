@@ -1,42 +1,245 @@
+/* ===== GLOBAL APP CONTAINER ===== */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  min-height: 100vh;
 }
 
+/* ===== GENERIC STYLES ===== */
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  height: 2em;
+  padding: 1em;
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+  filter: drop-shadow(0 0 2em rgba(212, 175, 55, 0.5));
 }
 
 .card {
   padding: 2em;
+  background-color: #242424;
+  border: 1px solid #333333;
+  border-radius: 8px;
+  color: #ffffff;
 }
 
 .read-the-docs {
   color: #888;
+}
+
+/* ===== PAGE SECTIONS ===== */
+.page-section {
+  min-height: calc(100vh - 90px);
+  padding: 60px 48px;
+  background-color: #1a1a1a;
+}
+
+.page-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #ffffff;
+  border-bottom: 2px solid #d4af37;
+  padding-bottom: 20px;
+}
+
+.page-subtitle {
+  font-size: 20px;
+  color: #b0b0b0;
+  margin-bottom: 30px;
+}
+
+/* ===== FORMS ===== */
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #d4af37;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  background-color: #242424;
+  color: #ffffff;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  font-family: inherit;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+/* ===== TABLES ===== */
+.table-container {
+  overflow-x: auto;
+  margin-top: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #242424;
+}
+
+table th {
+  background-color: #1a1a1a;
+  color: #d4af37;
+  padding: 16px;
+  text-align: left;
+  font-weight: 700;
+  border-bottom: 2px solid #d4af37;
+}
+
+table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #333333;
+  color: #b0b0b0;
+}
+
+table tr:hover {
+  background-color: #2a2a2a;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  padding: 12px 24px;
+  border: 2px solid #d4af37;
+  background-color: #242424;
+  color: #d4af37;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #d4af37;
+  color: #1a1a1a;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.btn-primary {
+  background-color: #d4af37;
+  color: #1a1a1a;
+  border-color: #d4af37;
+}
+
+.btn-primary:hover {
+  background-color: #e8c547;
+  border-color: #e8c547;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #d4af37;
+  border-color: #d4af37;
+}
+
+.btn-secondary:hover {
+  background-color: #d4af37;
+  color: #1a1a1a;
+}
+
+.btn-small {
+  padding: 8px 16px;
+  font-size: 12px;
+}
+
+/* ===== STATS CARDS ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin: 40px 0;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #242424 0%, #2a2a2a 100%);
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid #333333;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.stat-card h3 {
+  font-size: 14px;
+  color: #b0b0b0;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-card .value {
+  font-size: 32px;
+  font-weight: 700;
+  color: #d4af37;
+}
+
+.stat-card .change {
+  font-size: 12px;
+  color: #2fa46a;
+  margin-top: 8px;
+}
+
+.stat-card .change.negative {
+  color: #f26d5b;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .page-section {
+    padding: 40px 24px;
+  }
+
+  .page-title {
+    font-size: 36px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  table th,
+  table td {
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-section {
+    padding: 24px 16px;
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+
+  .btn {
+    padding: 10px 16px;
+    font-size: 12px;
+  }
 }

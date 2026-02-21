@@ -6,7 +6,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="logo">Budget Planner</div>
+      <div className="logo">✏️ Budget Planner</div>
 
       <div className="nav-links">
         {navItems.map((item) => (
