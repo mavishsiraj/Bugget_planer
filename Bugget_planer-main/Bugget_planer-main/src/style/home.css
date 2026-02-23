@@ -1,0 +1,448 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fbf1e6;
+  font-family: "Patrick Hand", cursive;
+  color: #3b2b20;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 32px;
+  border-bottom: 2px dashed #e7d7a7;
+}
+
+.nav-links a {
+  margin-left: 16px;
+  text-decoration: none;
+  color: #444;
+  padding: 6px 12px;
+  border-radius: 12px;
+}
+
+.nav-links a.active {
+  background: #dff1e8;
+}
+
+.home-page {
+  text-align: center;
+  padding: 48px 20px 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.home-title {
+  font-size: 96px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.home-subtitle {
+  font-size: 18px;
+  color: #6b6b6b;
+  margin-top: 8px;
+}
+
+.home-tagline span {
+  font-size: 18px;
+  margin: 0 6px;
+  font-weight: bold;
+}
+
+.home-cards {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 60px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+.doodle-card {
+  width: 300px;
+  min-height: 210px;
+  padding: 32px 26px 28px;
+  background: #fff7ec;
+  position: relative;
+  border-radius: 22px 18px 26px 20px;
+  border: 2.5px solid;
+  box-shadow: 0 12px 22px rgba(0,0,0,0.08);
+  transform: rotate(var(--tilt));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.doodle-card:hover {
+  transform: translateY(-10px) rotate(0deg);
+  box-shadow: 0 22px 38px rgba(0,0,0,0.15);
+}
+
+.doodle-card::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 64px;
+  height: 18px;
+  background: rgba(255, 204, 102, 0.85);
+  border-radius: 4px;
+}
+
+.doodle-card h3 {
+  font-size: 22px;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #3b2b20;
+}
+
+.doodle-card p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #6b5b4d;
+}
+
+.card-teal {
+  border-color: #2fa4a9;
+  background: #eef9f8;
+  --tilt: -1.5deg;
+}
+
+.card-pink {
+  border-color: #f26d5b;
+  background: #fff2ef;
+  --tilt: 1.2deg;
+}
+
+.card-yellow {
+  border-color: #f2b632;
+  background: #fff8e6;
+  --tilt: -0.8deg;
+}
+
+.doodle-arrow {
+  width: 800px;
+  height: 60px;
+  margin: 10px auto 16px;
+  animation: arrowFloat 3s ease-in-out infinite;
+}
+
+@keyframes arrowFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+  100% { transform: translateY(0); }
+}
+
+.cards-doodle-bg {
+  position: relative;
+  padding: 140px 0 160px;
+  margin-top: 100px;
+  background-image: url("../assets/doodles/bg2.jpg");
+  background-repeat: repeat;
+  background-size: 420px;
+  animation: doodleMove 16s ease-in-out infinite;
+  overflow: hidden;
+}
+
+.cards-doodle-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 248, 235, 0.92);
+  z-index: 0;
+}
+
+@keyframes doodleMove {
+  0% { background-position: 0 0; }
+  50% { background-position: 40px 30px; }
+  100% { background-position: 0 0; }
+}
+
+/* ===== SOFT DECORATIVE BACKGROUND ===== */
+
+.home-bg-wrapper {
+  position: relative;
+  margin-top: 80px;
+  height: 70vh;
+  overflow: hidden;
+}
+
+/* the image itself */
+.home-bg-section {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.55;      /* more visible */
+  filter: blur(1px);  /* softer blur */
+  transform: scale(1.08);
+}
+
+
+/* fade top and bottom so it blends */
+.home-bg-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(251,241,230,0.9) 0%,
+    rgba(251,241,230,0.35) 45%,
+    rgba(251,241,230,0.9) 100%
+  );
+}
+
+
+
+.fancy-header {
+  position: relative;
+  padding: 120px 20px 160px;
+}
+
+.fancy-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.9), transparent 70%);
+  z-index: -1;
+}
+
+.header-doodles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.doodle {
+  position: absolute;
+  font-size: 32px;
+  opacity: 0.9;
+}
+
+.doodle.pencil {
+  top: 10%;
+  left: 18%;
+  transform: rotate(-20deg);
+}
+
+.doodle.star {
+  top: 12%;
+  right: 20%;
+}
+
+.doodle.chart {
+  top: 18%;
+  right: 12%;
+}
+
+.title-underline {
+  width: 80px;
+  height: 6px;
+  margin: 14px auto;
+  background: #f08a5d;
+  border-radius: 6px;
+}
+
+.home-tagline .fun {
+  color: #2fa4a9;
+}
+.home-tagline .simple {
+  color: #f2b632;
+}
+.home-tagline .organized {
+  color: #f26d5b;
+}
+
+.pick-hint {
+  margin-top: 30px;
+  font-size: 14px;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.pick-hint .arrow-down {
+  display: block;
+  font-size: 20px;
+  margin-top: 6px;
+}
+/* ===== HERO SECTION (TOP PART) ===== */
+
+.hero-title {
+  font-size: 110px;
+  line-height: 1;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.hero-title .budget {
+  color: #3b2b20;
+  background: #ffe9b5;
+  padding: 0 14px;
+  border-radius: 8px;
+}
+
+.hero-title .planner {
+  color: #f26d2f;
+  margin-left: 14px;
+}
+
+.hero-arrow {
+  width: 140px;
+  margin: 10px auto 18px;
+  display: block;
+  opacity: 0.85;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  color: #6b6b6b;
+  margin-bottom: 20px;
+}
+
+.hero-tags {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.tag {
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid;
+}
+
+.tag.fun {
+  color: #f26d5b;
+  background: #fff2ef;
+  border-color: #f26d5b;
+}
+
+.tag.simple {
+  color: #2f7edb;
+  background: #eef5ff;
+  border-color: #2f7edb;
+}
+
+.tag.organized {
+  color: #2fa46a;
+  background: #eafaf1;
+  border-color: #2fa46a;
+}
+
+/* floating doodles */
+.doodle {
+  position: absolute;
+  font-size: 34px;
+  opacity: 0.9;
+  animation: floaty 4s ease-in-out infinite;
+}
+
+.doodle.pencil {
+  top: 30px;
+  left: 45%;
+  transform: rotate(-20deg);
+}
+
+.doodle.star {
+  top: 90px;
+  right: 18%;
+}
+
+.doodle.chart {
+  top: 120px;
+  left: 20%;
+}
+
+@keyframes floaty {
+  0% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(8px) rotate(2deg); }
+  100% { transform: translateY(0) rotate(-2deg); }
+}
+/* ================= HERO BACKGROUND IMAGE ================= */
+
+.home-header {
+  position: relative;
+  padding: 120px 20px 140px;
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* soft paper tint so text readable */
+.home-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(247, 241, 231, 0.78);
+  z-index: 0;
+}
+
+/* white glow behind title */
+.home-header::after {
+  content: "";
+  position: absolute;
+  width: 780px;
+  height: 340px;
+  background: radial-gradient(circle,
+      rgba(255,255,255,0.95) 0%,
+      rgba(255,255,255,0.75) 45%,
+      rgba(255,255,255,0) 75%);
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.hero-title,
+.hero-subtitle,
+.hero-tags,
+.hero-arrow {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== QUOTE SECTION ===== */
+
+.quote-section {
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #5a4a3f;
+}
+
+.quote-text {
+  font-size: 42px;
+  max-width: 720px;
+  line-height: 1.4;
+  font-weight: 600;
+  opacity: 0.9;
+  animation: floatQuote 6s ease-in-out infinite;
+}
+
+.quote-sub {
+  margin-top: 18px;
+  font-size: 18px;
+  opacity: 0.7;
+  letter-spacing: 1px;
+}
+
+@keyframes floatQuote {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
