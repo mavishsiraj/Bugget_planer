@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 168 70% 93%;
+    --foreground: 220 25% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+    --primary: 168 70% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 25% 10%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
+    --accent: 252 60% 58%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 168 70% 40%;
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Category colors */
+    --cat-food: 12 80% 60%;
+    --cat-transport: 168 70% 42%;
+    --cat-entertainment: 48 90% 55%;
+    --cat-shopping: 252 60% 58%;
+    --cat-health: 152 70% 45%;
+    --cat-bills: 220 70% 55%;
+    --cat-education: 330 70% 55%;
+    --cat-travel: 30 90% 55%;
+
+    /* Semantic finance colors */
+    --income: 152 70% 42%;
+    --expense: 12 80% 58%;
+    --savings: 168 70% 40%;
+
+    /* Glass effect */
+    --glass-bg: 0 0% 100% / 0.7;
+    --glass-border: 0 0% 100% / 0.3;
+    --glass-blur: 20px;
+  }
+
+  .dark {
+    --background: 224 25% 6%;
+    --foreground: 210 20% 96%;
+    --card: 224 25% 10%;
+    --card-foreground: 210 20% 96%;
+    --popover: 224 25% 10%;
+    --popover-foreground: 210 20% 96%;
+    --primary: 168 70% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 224 14% 16%;
+    --secondary-foreground: 210 20% 96%;
+    --muted: 224 14% 16%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 252 60% 65%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 224 13% 18%;
+    --input: 224 13% 18%;
+    --ring: 168 70% 48%;
+
+    --sidebar-background: 224 25% 8%;
+    --sidebar-foreground: 210 20% 96%;
+    --sidebar-primary: 168 70% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 224 14% 14%;
+    --sidebar-accent-foreground: 210 20% 96%;
+    --sidebar-border: 224 13% 18%;
+    --sidebar-ring: 168 70% 48%;
+
+    --glass-bg: 224 25% 10% / 0.7;
+    --glass-border: 224 25% 20% / 0.3;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid hsl(var(--glass-border));
+  }
+
+  .glass-card {
+    @apply glass rounded-2xl shadow-lg;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(45, 181, 163, 0.15);
+  }
+
+  .glass-card:active {
+    transform: translateY(-1px) scale(0.99);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    transition: transform 0.08s ease, box-shadow 0.08s ease;
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(168 70% 40%), hsl(168 70% 55%));
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, hsl(252 60% 55%), hsl(280 60% 60%));
+  }
+
+  .gradient-income {
+    background: linear-gradient(135deg, hsl(152 70% 38%), hsl(168 70% 48%));
+  }
+
+  .gradient-expense {
+    background: linear-gradient(135deg, hsl(12 80% 55%), hsl(0 72% 55%));
+  }
+
+  .gradient-mesh {
+    background:
+      radial-gradient(at 20% 20%, hsl(168 70% 40% / 0.15) 0%, transparent 50%),
+      radial-gradient(at 80% 80%, hsl(252 60% 58% / 0.1) 0%, transparent 50%),
+      radial-gradient(at 50% 50%, hsl(48 90% 55% / 0.05) 0%, transparent 50%);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(168 70% 40%), hsl(252 60% 58%));
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Remove default browser focus rectangle on Recharts SVG elements */
+.recharts-surface:focus,
+.recharts-wrapper svg:focus,
+.recharts-wrapper:focus {
+  outline: none;
+}
